@@ -1,0 +1,257 @@
+/* --- Variables de Couleur --- */
+:root {
+    --couleur-primaire: #005a9c; /* Bleu hospitalier */
+    --couleur-secondaire: #e6f0f8; /* Bleu très clair */
+    --couleur-texte: #333;
+    --couleur-alerte: #d9534f; /* Rouge danger */
+    --couleur-succes: #5cb85c; /* Vert succès */
+    --couleur-bordure: #ccc;
+}
+
+/* --- Style Général --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa;
+    color: var(--couleur-texte);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--couleur-primaire);
+    color: white;
+    padding: 20px 30px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+nav button:hover {
+    background-color: var(--couleur-primaire);
+}
+
+/* --- Style du Contenu Principal --- */
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+.module {
+    display: none; /* Caché par défaut */
+    animation: fadeIn 0.5s;
+}
+
+.module.active {
+    display: block; /* Affiché si actif */
+}
+
+.module h2 {
+    color: var(--couleur-primaire);
+    border-bottom: 2px solid var(--couleur-secondaire);
+    padding-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.module h2 .icon {
+    margin-right: 10px;
+}
+
+/* --- Styles des Formulaires et Boutons --- */
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 16px;
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 5px;
+    box-sizing: border-box; /* Important pour que le padding ne casse pas la largeur */
+    font-size: 1rem;
+}
+
+.action-button {
+    background-color: var(--couleur-primaire);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.action-button:hover {
+    background-color: #004a80;
+    transform: translateY(-2px);
+}
+
+.radio-group {
+    margin: 5px 0 10px;
+}
+
+.radio-group label {
+    margin-left: 5px;
+}
+
+/* --- Styles Spécifiques aux Modules --- */
+
+/* Module 1: Vérification */
+.verification-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.input-group {
+    flex: 1; /* Les deux champs prennent la même largeur */
+}
+.input-group label {
+    font-weight: bold;
+}
+
+/* Module 3: Quiz */
+#quizContainer {
+    background-color: var(--couleur-secondaire);
+    padding: 20px;
+    border-radius: 5px;
+    min-height: 150px;
+}
+.quiz-question {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.quiz-option {
+    display: block;
+    margin: 10px 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid var(--couleur-bordure);
+}
+.quiz-option:hover {
+    background-color: #f0f0f0;
+}
+.quiz-option input {
+    margin-right: 10px;
+}
+
+/* Module 4: Bibliothèque */
+#rechercheBiblio {
+    margin-bottom: 20px;
+}
+.lasa-card {
+    display: flex;
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.lasa-med {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+}
+.lasa-med.med-a {
+    border-right: 1px dashed var(--couleur-bordure);
+}
+.lasa-med img {
+    max-width: 150px;
+    height: auto;
+    border: 1px solid #eee;
+    padding: 5px;
+    background-color: #f9f9f9;
+}
+.lasa-med h4 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+}
+.lasa-med p {
+    margin: 0;
+    font-style: italic;
+    color: #555;
+}
+.lasa-card-info {
+    background-color: var(--couleur-secondaire);
+    padding: 15px;
+    border-top: 1px solid var(--couleur-bordure);
+}
+.lasa-card-info strong {
+    color: var(--couleur-alerte);
+}
+
+/* --- Styles des Résultats et Alertes --- */
+.resultat-box {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    display: none; /* Caché par défaut */
+}
+.resultat-box.alerte {
+    background-color: #fdeded;
+    border: 1px solid var(--couleur-alerte);
+    color: var(--couleur-alerte);
+    display: block;
+}
+.resultat-box.succes {
+    background-color: #eef7ee;
+    border: 1px solid var(--couleur-succes);
+    color: var(--couleur-succes);
+    display: block;
+}
+
+/* --- Animation --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Pied de page --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #aaa;
+    margin-top: 30px;
+    font-size: 0.85rem;
+}
+footer p {
+    margin: 5px 0;
+}
